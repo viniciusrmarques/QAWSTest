@@ -1,5 +1,6 @@
 import java.util.concurrent.TimeUnit;
 import org.junit.After;
+import org.junit.Assert;
 import org.junit.Before;
 import org.junit.Test;
 import org.openqa.selenium.By;
@@ -30,26 +31,18 @@ public class ValidaSelectEdit {
 	
 	@Test
 	public void ValidaSelecteEdit() {
-	    driver.findElement(By.cssSelector("tr:nth-child(1) a:nth-child(1)")).click();
-	    driver.findElement(By.cssSelector("tr:nth-child(1) a:nth-child(2)")).click();
-	    driver.findElement(By.cssSelector("tr:nth-child(2) a:nth-child(1)")).click();
-	    driver.findElement(By.cssSelector("tr:nth-child(2) a:nth-child(2)")).click();
-	    driver.findElement(By.cssSelector("tr:nth-child(3) a:nth-child(1)")).click();
-	    driver.findElement(By.cssSelector("tr:nth-child(3) a:nth-child(2)")).click();
-	    driver.findElement(By.cssSelector("tr:nth-child(4) a:nth-child(1)")).click();
-	    driver.findElement(By.cssSelector("tr:nth-child(4) a:nth-child(2)")).click();
-	    driver.findElement(By.cssSelector("tr:nth-child(5) a:nth-child(1)")).click();
-	    driver.findElement(By.cssSelector("tr:nth-child(5) a:nth-child(2)")).click();
-	    driver.findElement(By.cssSelector("tr:nth-child(6) a:nth-child(1)")).click();
-	    driver.findElement(By.cssSelector("tr:nth-child(6) a:nth-child(2)")).click();
-	    driver.findElement(By.cssSelector("tr:nth-child(7) a:nth-child(1)")).click();
-	    driver.findElement(By.cssSelector("tr:nth-child(7) a:nth-child(2)")).click();
-	    driver.findElement(By.cssSelector("tr:nth-child(8) a:nth-child(1)")).click();
-	    driver.findElement(By.cssSelector("tr:nth-child(8) a:nth-child(2)")).click();
-	    driver.findElement(By.cssSelector("tr:nth-child(9) a:nth-child(1)")).click();
-	    driver.findElement(By.cssSelector("tr:nth-child(9) a:nth-child(2)")).click();
-	    driver.findElement(By.cssSelector("tr:nth-child(10) a:nth-child(1)")).click();
-	    driver.findElement(By.cssSelector("tr:nth-child(10) a:nth-child(2)")).click();
+		
+		int tr;
+		int as;
+		
+		for (tr = 1; tr < 10; tr++) {
+			for (as = 1; as < 2; as++) {
+				driver.findElement(By.cssSelector("tr:nth-child("+ tr +") a:nth-child("+ as +")")).click();
+			}
+		}
+		    
+		boolean FinishOk = tr == 10;
+		Assert.assertTrue(FinishOk);
 	}
 
 	@After
