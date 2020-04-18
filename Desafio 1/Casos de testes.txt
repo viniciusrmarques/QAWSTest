@@ -1,0 +1,94 @@
+# linguagem: pt-br
+Funcionalidade: Resumo do Vendedor
+	A fim de apresentar informações sobre o vendedor.
+	Buscando um módulo que centralize e de forma resumida, apresente informações do vendedor, como localização atual, atividade, vendas, etc.
+
+	Cenário: Exibição dos cards de Informações do vendedor
+		Dado que o vendedor tenha sido cadastrado pelo módulo de cadastros de usuários
+		E esteja ativo no sistema
+		Quando acessar o Resumo de vendedor
+		E buscar o vendedor desejado
+		Deve ser apresentado os seguintes cards: Informações Gerais, Localização, Oportunidades, Limite de crédito, Vendas, Títulos financeiros e Atividades.    
+
+	Cenário: Exibição de Informações Gerais do Vendedor
+		Dado que tenha sido cadastrado ou selecionado, o vendedor desejado na listagem de vendedores		
+		Quando o Resumo de vendedores é exibido		
+		Deve ser apresentado por primeiro o card de Informações gerais contendo Nome e sobrenome, Foto do vendedor, Filial que o vendedor foi registrado, Situação do vendedor exibido em um box (verde para ativo ou vermelho para inativo), Informações de contato (Um telefone celular com informação de DDD e um e-mail preferencialmente do trabalho).
+		Deve também ser apresentado caso tenha sido cadastrado, os ícones de contato por WhatsApp, perfil no Facebook, perfil no Instagram, perfil no Twitter e perfil no LinkedIn.
+	
+	Cenário: Exibição de Informações Gerais do Vendedor Inativado
+		Dado que o vendedor tenha sido cadastrado no sistema
+		e sua situação seja inativo
+		quando selecionado o vendedor na listagem de vendedores
+		deve ser exibido as mesmas informações de quando o vendedor era ativo.
+		deve ser exibido em informações gerais o box de 'situação' localizado logo abaixo da filial do vendedor, com uma cor em vermelho e com o descritivo inativo.
+		
+	Cenário: Exibição de Informações Gerais do Vendedor sem foto
+		Dado que o vendedor tenha sido cadastrado no sistema
+		e não foi tirado uma foto.
+		quando o cadastro for exibido no Resumo do vendedor
+		deve ser exibido um ícone genérico para vendedor sem foto que consiste em um "Boneco" em branco com fundo cinza.
+		
+	Cenário: Exibição de Informações Gerais do Vendedor sem informações de contato adicionais.
+		Dado que o vendedor tenha sido cadastrado no sistema e não tenha sido cadastrado informações adicionar (WhatsApp, Facebook, Instagram, etc.)
+		Quando acessado o Resumo de Vendedor do vendedor desejado
+		Deve não conter os ícones de WhatsApp, Facebook, Instagram, Twitter e LinkedIn em informações gerais do vendedor.
+		
+	Cenário: Exibição da localização em tempo real
+		Dado que o vendedor esteja com o sistema aberto no celular em seu horário de trabalho
+		Quando acessamos o Resumo do vendedor
+		deve ser exibido em um Mapa com um marcador a localização em tempo real do vendedor.
+		e deve logo abaixo ser exibido o endereço completo da localização.
+	
+	Cenário: Exibição de Oportunidades
+		Dado que o vendedor tenha realizado orçamentos
+		Quando acessado o Resumo de Vendedor
+		deve ser listados os status das oportunidades (Ganhas, Perdidas, Abertas e Descartadas)
+		E seus valores totais em reais logo abaixo
+	
+	Cenário: Informações sobre Oportunidades
+		Dado que o vendedor possua um cadastro no sistema que possa ser visualizado no Resumo do Vendedor
+		E dado que o vendedor esteja ativo no sistema
+		deve ser exibido o card de Oportunidades
+		E deve ser exibido ícone de informações adicionais, este, será exibido as legendas e descritivos referente a cada oportunidade (Ganhas, Perdidas, Abertas e Descartadas).
+		
+	Cenário: Visualização de todas Oportunidades
+		Dado que o vendedor possua um cadastro no sistema que possa ser visualizado no Resumo do Vendedor.
+		E dado que o vendedor esteja ativo no sistema.
+		Deve ser exibido um link no card de Oportunidades, este, descrito como "Ver todas Oportunidades".
+		Quando selecionado, deve ser exibido todas as oportunidades realizadas pelo vendedor independentemente da situação da oportunidade.
+		
+	Cenário: Limite de Crédito
+		Dado que o vendedor possua um cadastro no sistema com a situação ativo e possa ser visualizado no Resumo do vendedor.
+		E dado que o vendedor possua Credito concedido pela empresa.
+		Deve ser exibido o card de Limite de credito, com informações do credito configurado para o vendedor (Concedido) e o credito total que o mesmo ainda pode utilizar (Disponível).
+		
+	Cenário: Exibição do gráfico de vendas
+		Dado que o vendedor possua um cadastro no sistema que possa ser visualizado no Resumo do Vendedor.
+		Deve ser exibido o card de Vendas com um descritivo "Adicionar um gráfico aqui".
+		Quando selecionado o descritivo, uma nova tela contendo as opções de gráfico possíveis deve ser exibida, permitindo selecionar um gráfico para ser exibido na opção gráfico de vendas.
+		
+	Cenário: Exibição de Títulos financeiros
+		Dado que o vendedor possua um cadastro no sistema que possa ser visualizado no Resumo do Vendedor.
+		E dado que o vendedor possua comissões aplicadas em cima de Títulos financeiros (Contas a Receber)
+		Deve ser exibida o valor total de títulos vencidos, a vencer e pagos no card de Títulos Financeiros.
+		Deve também possui o número de títulos a esquerda e separados por cores sendo, vermelho os vencidos, alaranjado a vencer e verdes como pagos.
+		
+	Cenário: Exibição de atividades
+		Dado que o vendedor possua um cadastro no sistema que possa ser visualizado no Resumo do Vendedor.
+		E dado que o vendedor possua Atividades cadastradas na agenda
+		Deve ser exibida no card de Atividades uma visualização geral destas atividades sendo separadas por "Em Atraso" sendo as atividades que estouraram o tempo previsto de finalização, as atividades "Em andamento" sendo as atividades que estão sendo realizadas, As "Previstas", atividades que foram programadas para serem realizadas e as "Concluídas" sendo as atividades finalizadas.
+		Deve também ser exibida um card totalizador de atividades, em cinza ao lado dos status por atividade.
+		Deve também ser exibida uma barra de pesquisa ao topo, para procurar uma atividade especifica.
+		
+	Cenário: Cadastro de Atividades
+		Dado que o vendedor possua um cadastro no sistema que possa ser visualizado no Resumo do Vendedor.
+		Deve ser exibida no card de Atividades um botão em azul com símbolo de prancheta.
+		Quando selecionado deve ser exibida a tela de cadastros de atividades.
+	
+	Cenário: Situações de Atividades
+		Dado que o vendedor possua um cadastro no sistema que possa ser visualizado no Resumo do Vendedor.
+		E Dado que o vendedor possua Atividades cadastradas.
+		Deve ser exibida ao lado direito da tela de Resumo de vendedores no card de Atividades, sendo empilhadas por primeiro as atividades em Atraso (Em vermelho), seguida das atividades Previstas (Alaranjado) e por fim as atividades Concluídas (Verdes).
+		Deve também ser exibida o título da atividade, o nome do cliente seguido do dia previsto e o horário.
+		Quando uma atividade estiver atrasada deve ser exibida somente a quantidade de tempo em atraso, podendo ser Horas ou dias.
